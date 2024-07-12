@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "10070d94-9ac5-4ca1-9710-3aaa92f668a5",
+		"name": "Laravel Demo App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30239833",
+		"_collection_link": "https://dark-meadow-63144.postman.co/workspace/ACPG-Shared~a3d67673-3796-43bb-a271-126bdd0c2c30/collection/30239833-10070d94-9ac5-4ca1-9710-3aaa92f668a5?action=share&source=collection_link&creator=30239833"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.environment.set(\"token\", \"Bearer \" + data.data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "shailesh.k+01",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "shailesh.k+10@crestinfosystems.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin@123$$",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "Admin@123$$",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hosturl}}register",
+							"host": [
+								"{{hosturl}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.globals.set(\"token\", data.data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "shailesh.k+11@crestinfosystems.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin@123$$",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hosturl}}login",
+							"host": [
+								"{{hosturl}}login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 19|yS6ZjCaARSsfMYOZbITt0mhn2ZC5SEB9SLavBnsf31be8d76",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hosturl}}user",
+							"host": [
+								"{{hosturl}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 19|yS6ZjCaARSsfMYOZbITt0mhn2ZC5SEB9SLavBnsf31be8d76",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{hosturl}}user/1",
+							"host": [
+								"{{hosturl}}user"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 19|yS6ZjCaARSsfMYOZbITt0mhn2ZC5SEB9SLavBnsf31be8d76",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{hosturl}}user/8",
+							"host": [
+								"{{hosturl}}user"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 19|yS6ZjCaARSsfMYOZbITt0mhn2ZC5SEB9SLavBnsf31be8d76",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "shailesh.k+01",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "shailesh.k+04@crestinfosystems.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin@123$$",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "Admin@123$$",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hosturl}}register",
+							"host": [
+								"{{hosturl}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 19|yS6ZjCaARSsfMYOZbITt0mhn2ZC5SEB9SLavBnsf31be8d76",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"shailesh.k+02\",\r\n    \"email\": \"shailesh.k+06@crestinfosystems.com\"\r\n    //password:Admin@123$$\r\n    //confirm_password:Admin@123$$\r\n}"
+						},
+						"url": {
+							"raw": "{{hosturl}}user/1",
+							"host": [
+								"{{hosturl}}user"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.globals.set(\"token\");\r",
+							"\r",
+							"console.log(pm.environment.get(\"token\"));"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hosturl",
+			"value": "http://myapp.localhost/api/",
+			"type": "string"
+		}
+	]
+}
