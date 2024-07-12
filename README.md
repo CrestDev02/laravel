@@ -56,21 +56,7 @@ Run the database seeder to create dummy users
     php artisan migrate:refresh
 
 
-After Run this http://localhost:8000 url on browser you can see the login page like this.
-![screenshot](screenshot/login.png)
-
-Register Page Link.
-![screenshot](screenshot/register.png)
-
-Userlisting Page.
-![screenshot](screenshot/Userlisting.png)
-
-Usercreate Page.
-![screenshot](screenshot/Usercreate.png)
-
-Useredit Page.
-![screenshot](screenshot/Useredit.png)
-    
+After Run this http://localhost:8000 url on browser you can see the login page.
 
 The api can be accessed at [http://localhost:8000/api](http://localhost:8000/api).
 
